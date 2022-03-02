@@ -1,0 +1,24 @@
+
+footer {
+    background-color: rgba(47,80,119,1);
+}
+nav {
+    background-color: rgba(47,80,119,1);
+}
+#img {
+    width: 50%;
+}
+
+#input-field {
+    width :20%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+#card {
+    margin-top: 50px;
+    margin-right: 50px;
+}
