@@ -1,0 +1,24 @@
+<nav class="nav-extended z-depth-3">
+  <div class="nav-wrapper center-align">
+    <a href="#!" class="brand-logo">Meteo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#!">Home</a></li>
+      <li><a href="#!prevision/1">Forecast</a></li>
+      <li><a href="#!ville">Add a city</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" ng-controller="controllerCity">
+  <form class="center-align">
+      <div class="input-field">
+        <i class="material-icons prefix">location_city</i>
+        <input ng-model="val" id="icon_prefix" type="text" class="validate" required>
+        <label for="icon_prefix">City name</label>
+      </div>
+      <div class="enter-align">
+        <a class="btn-floating pulse btn-large waves-effect waves-light blue darken-3" id="added" ><i class="material-icons" ng-click="clicSurButton()">add</i></a>
+      </div>
+    </div>
+  </form>
+</div>

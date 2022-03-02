@@ -1,0 +1,38 @@
+<nav class="nav-extended z-depth-3">
+  <div class="nav-wrapper center-align">
+    <a href="#!" class="brand-logo">Meteo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#!">Home</a></li>
+      <li><a href="#!prevision/1">Forecast</a></li>
+      <li><a href="#!ville">Add a city</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div ng-controller="controllerPrevision">
+  <div class="row valign-wrapper">
+    <div class="col s12 m4 l4 center-align">
+      <a class="btn-floating waves-effect waves-light blue down" id="back" ><i class="material-icons" ng-click="back()">arrow_back</i></a>
+    </div>
+    <div class="col s12 m4 l4 center-align">
+      <h1>{{city_name}}</h1>
+    </div>
+    <div class="col s12 m4 l4 center-align">
+      <a class="btn-floating waves-effect waves-light blue down" id="futur" ><i class="material-icons" ng-click="futur()">arrow_forward</i></a>
+    </div>
+  </div>
+<div class=" row center-align">
+  <div class="card-stacked col s12 m4 l3 z-depth-2" ng-repeat="x in week" ng-controller="controllerSevenDays" id="card">
+    <div class="card-content" >
+      <img class="activator" src="images/{{icone}}.png">
+      </div>
+      <div class="card-action">
+        <p class="center-align">Date : {{date}}</p>
+        <p class="center-align">Max : {{temp_max}} °C</p>
+        <p class="center-align">Min : {{temp_min}} °C</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</div>
