@@ -1,7 +1,7 @@
 <nav class="nav-extended z-depth-3">
-  <div class="nav-wrapper center-align">
-    <a href="#!" class="brand-logo">Meteo</a>
-    <ul class="right hide-on-med-and-down">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo center">Meteo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="#!">Home</a></li>
       <li><a href="#!prevision/1">Forecast</a></li>
       <li><a href="#!ville">Add a city</a></li>
@@ -17,19 +17,19 @@
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{name}}<i class="material-icons right">more_vert</i></span>
       <p id="temps">{{temps}}</p>
-      <p id="temperature">{{temperature}} °C</p>
+      <p id="temperature"><img src="images/temp.png">{{temperature}} °C</p>
       <div class="center-align">
         <a class="btn-floating waves-effect waves-light blue darken-3" id="delete" ><i class="material-icons" ng-click="delete_city(key, city)">delete</i></a>
       </div>
     </div>
-    <div class="card-reveal">
+    <div class="card-reveal valign-wrapper">
       <span id="city" class="card-title grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
       <img id="img" class="right" type="image"src="images/{{image}}.png">
-      <p id="temperature">{{temperature}} °C</p>
-      <p id="pressure">{{pression}} Pa</p>
-      <p id="humidity">{{humidite}} %</p>
-      <p id="wind_speed">{{vitesse_vent}} km/h</p>
-      <p id="wind_orientation">{{orientation_vent}}</p>
+      <p id="temperature"><img src="images/temp.png">{{temperature}} °C</p>
+      <p id="pressure"><img src="images/pressure.png">{{pression}} Pa</p>
+      <p id="humidity"><img src="images/humidity.png">{{humidite}} %</p>
+      <p id="wind_speed"><img src="images/wind_speed.png">{{vitesse_vent}} km/h</p>
+      <p id="wind_orientation"><img src="images/compass.png">{{orientation_vent}}</p>
     </div>
   </div>
 </div>

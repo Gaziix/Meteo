@@ -19,6 +19,5 @@ body {
     flex-direction: column;
   }
 #card {
-    margin-top: 50px;
-    margin-right: 50px;
+    margin-top: 25px;
 }

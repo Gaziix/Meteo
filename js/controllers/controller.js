@@ -1,3 +1,8 @@
+/**
+ * retrieves the 7-day forecast for a given city in $scope.city_name with the openweathermap API
+ * @param {*} $scope 
+ * @param {*} $http 
+ */
 function getWeatherSevenDays($scope, $http){
   $http({
     method: 'GET',
@@ -36,14 +41,29 @@ function getWeather($scope, $http){
       $scope.temperature = response.data.main.temp;
       $scope.pression = response.data.main.pressure;
       $scope.humidite = response.data.main.humidity;
-      $scope.vitesse_vent = response.data.wind.speed
-      $scope.orientation_vent = "?";
+      $scope.vitesse_vent = response.data.wind.speed;
+      var x = response.data.wind.deg;
+      if (x >= 315 || x < 45){
+        $scope.orientation_vent = "North";
+      } else if(x < 315 && x >= 225){
+        $scope.orientation_vent = "West";
+      }else if(x >= 45 && x < 135){
+        $scope.orientation_vent = "Est";
+      }else {
+        $scope.orientation_vent = "South";
+      }
       return true;
     }, function errorCallback() {
       alert("doesn't work...");
     });
 }
 
+/**
+ * allows to add a city to the localStorage, checking that it exists in the openweathermap 
+ * API DB, and that it does not already exist in the localStorage
+ * @param {*} $scope 
+ * @param {*} $http 
+ */
 function getCity($scope, $http){
   if ($scope.val != "" && $scope.val != undefined){
     $http({
@@ -70,6 +90,12 @@ function getCity($scope, $http){
   }
 }
 
+/**
+ * allows you to remove an item from the localStorage, and to arrange it 
+ * afterwards so that there is no hole in the list.
+ * @param {*} key the id of the city
+ * @param {*} city the name of the city
+ */
 function deleteCity(key, city){
   localStorage.removeItem(key);
   for (key; key <= localStorage.length; key++){
@@ -79,6 +105,11 @@ function deleteCity(key, city){
   location.reload();
 }
 
+/**
+ * allows you to move to the next city of the localStorage if there are several.
+ * @param {*} $routeParams 
+ * @param {*} $route 
+ */
 function futur($routeParams, $route){
   var b = 1;
   if ($routeParams.cityValue >= localStorage.length){
@@ -89,6 +120,12 @@ function futur($routeParams, $route){
   $route.updateParams({cityValue : b});
   
 }
+
+/**
+ * allows to pass the previous city in the list of the localStorage
+ * @param {*} $routeParams 
+ * @param {*} $route 
+ */
 function back($routeParams, $route){
   var b = 1;
   if ($routeParams.cityValue <= 1){

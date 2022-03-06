@@ -16,7 +16,9 @@ app.config(function($routeProvider) {
   .otherwise({redirectTo:'/'});
 });
 
-/* controller meteovilles.html */
+/* -----------------------------
+  controller meteovilles.html 
+-------------------------------- */
 app.controller('controllerRepeat', function($scope){
   $scope.villes = localStorage;
   $scope.delete_city = function(key, city){
@@ -29,7 +31,9 @@ app.controller('controllerRepeat', function($scope){
 
 app.controller('controllerMeteo', getWeather); 
 
-/* controller prevision.html */
+/* -----------------------------
+  controller prevision.html 
+-------------------------------- */
 app.controller('controllerPrevision', ['$scope', '$routeParams', '$route',function($scope, $routeParams, $route) {
   $scope.week = [1, 2, 3, 4, 5, 6, 7];
   var s = $routeParams.cityValue;
@@ -44,6 +48,7 @@ app.controller('controllerPrevision', ['$scope', '$routeParams', '$route',functi
   }
 
 }]);
+
 app.controller('controllerSevenDays', ['$scope', '$http','$timeout', function($scope, $http, $timeout){
   if (localStorage.length == 0){
     if ($scope.x == 1){
@@ -61,7 +66,9 @@ app.controller('controllerSevenDays', ['$scope', '$http','$timeout', function($s
   }
 }]); 
 
-/* controller villes.html */
+/* -----------------------------
+  controller villes.html 
+-------------------------------- */
 app.controller('controllerCity', ['$scope', '$http', function($scope, $http) {
   $scope.clicSurButton = function(){
       getCity($scope, $http);
